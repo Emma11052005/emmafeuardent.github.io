@@ -1,0 +1,597 @@
+/* --- Responsive : Masquer menu sur écran étroit --- */
+
+
+
+/* Style par défaut : on cache le menu burger */
+.burger {
+    display: none;
+}
+
+/* Menu burger visible sur petits écrans */
+@media (max-width: 1000px) {
+    nav > ul {
+        display: none; /* Cache le menu principal */
+    }
+
+    .burger {
+        display: block;
+        cursor: pointer;
+        padding: 1em;
+        background-color: #f5f5f5;
+        font-size: 20px;
+    }
+
+    #mainNav {
+        display: none;
+        background-color: #fff;
+        padding: 1em;
+        border: 1px solid #ccc;
+    }
+
+    #mainNav.active {
+        display: block;
+    }
+
+    #mainNav ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    #mainNav li {
+        margin: 0.5em 0;
+    }
+
+    #mainNav a {
+        text-decoration: none;
+        color: #333;
+    }
+}
+
+/* === GLOBAL === */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #fff;
+  color: #333;
+  line-height: 1.6;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+h3 {
+  width: 100%;
+  font-size: 30px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* === GRID CONTAINER === */
+.grid-container {
+  display: grid;
+  grid-template-areas: 
+    'menu menu menu'
+    'left main right'
+    'left main right'
+    'tarif tarif tarif'
+    'presta presta presta'
+    'galerie galerie galerie'
+    'avis avis avis'
+    'plan plan plan'
+    'contact contact contact'
+    'footer footer footer';
+  padding-top: 80px;
+}
+
+/* === MENU PRINCIPAL (item1) === */
+.item1 {
+  grid-area: menu;
+  background-color: #ffffff;
+  position: fixed;
+  height: 80px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.item1 > nav ul {
+  list-style: none;
+  text-align: center;
+  align-items: center;
+  margin-right: 2%;
+}
+
+.item1 > nav ul li {
+  display: inline;
+}
+
+.item1 > nav ul li button {
+  background-color: #000000;
+  color: #ffffff;
+  margin-left: 2%;
+  font-size: larger;
+  font-weight: bolder;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 25px;
+}
+
+.item1 > nav ul li img {
+  width: 2.5%;
+}
+
+.item1 > nav ul a {
+  text-decoration: none;
+  color: #4a004a;
+  font-weight: bolder;
+  font-size: larger;
+}
+
+.rdv-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #fccdd8;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.rdv-button:hover {
+  background-color: #f79ec3;
+}
+
+
+
+.item1bis {
+  grid-area: menu;
+  display: none;
+  
+}
+
+.item1bis > rdv-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #fccdd8;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.item1bis > rdv-button:hover {
+  background-color: #f79ec3;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* === IMAGES ACCUEIL (item2 à item4) === */
+.item2 { grid-area: left; background-color: #fccdd8; width: 100%; height: 100%; }
+.item3 { grid-area: main; }
+.item4 { grid-area: right; }
+
+.item2 > img,
+.item3 > img,
+.item4 > img {
+  width: 100%;
+  height: 100%;
+}
+
+/* === TARIFS (item5) === */
+.item5 {
+  grid-area: tarif;
+  background-color: #fff0f5;
+  padding: 40px 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+.item5 h3 {
+  font-size: 34px;
+  color: #4a004a;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.tarif-section {
+  margin-bottom: 40px;
+}
+
+.tarif-section h4 {
+  font-size: 26px;
+  margin-bottom: 15px;
+  color: #4a004a;
+  border-bottom: 2px solid #fccdd8;
+  padding-bottom: 5px;
+}
+
+.tarif-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 18px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.tarif-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.tarif-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #e0cde1;
+}
+
+.tarif-table td:first-child {
+  color: #333;
+  font-weight: 500;
+}
+
+.tarif-table td:last-child {
+  text-align: right;
+  font-weight: bold;
+  color: #a64ca6;
+}
+
+.tarif-table .note {
+  font-size: 16px;
+  font-style: italic;
+  color: #666;
+  text-align: center;
+  padding-top: 10px;
+  border: none;
+}
+
+/* === PRESTATIONS (item6 et #prestation) === */
+.item6 {
+  grid-area: presta;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item6 > img {
+  border: solid;
+  margin: 0.5%;
+}
+
+.presta1 { width: 33%; }
+.presta2 { width: 25%; }
+.presta3 { width: 37%; }
+.presta4 { width: 49%; height: 45%; }
+.presta5 { width: 48%; height: 45%; }
+
+#prestation {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+#prestation img {
+  position: relative;
+  width: 450px;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.presta-wrapper {
+  position: relative;
+  display: inline-block;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.presta-wrapper:hover img {
+  transform: scale(1.05);
+}
+
+.presta-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #333;
+  font-weight: 600;
+  font-size: 1.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 8px;
+}
+
+.presta-wrapper:hover .presta-overlay {
+  opacity: 1;
+}
+
+/* === GALERIE (item8 et pageGalerie) === */
+
+/* Section galerie principale */
+.item8 {
+  grid-area: galerie;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  width: 100%;
+  height: 100vh;        
+}
+
+.item8 > img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.item8 > img:hover {
+  transform: scale(1.05);
+}
+
+
+.pageGalerie,
+.mosaic {
+  
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  justify-items: center;
+}
+
+
+.mosaic img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.mosaic img:hover {
+  transform: scale(1.05);
+}
+
+
+/* === AVIS (item9) === */
+.item9 {
+  grid-area: avis;
+  background-color: #fff0f5;
+  padding: 40px 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.item9 h3 {
+  font-size: 34px;
+  color: #4a004a;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.testimonial {
+  background-color: #ffffff;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+  max-width: 700px;
+  font-style: italic;
+  color: #555;
+}
+
+.btn-see-more {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #d43f9b;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.btn-see-more:hover {
+  background-color: #78034b;
+}
+
+/* === PLAN D'ACCÈS (item7) === */
+.item7 {
+  grid-area: plan;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.item7 iframe {
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(252, 205, 216, 0.3);
+  width: 100%;
+  max-width: 600px;
+  height: 450px;
+}
+
+/* === FORMULAIRE CONTACT (item10) === */
+.item10 {
+  grid-area: contact;
+  background-color: #fff0f5;
+  padding: 40px 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  max-width: 800px;
+  margin: 30px auto;
+  font-family: 'Georgia', serif;
+  color: #4a004a;
+}
+
+.item10 > p {
+  font-size: 20px;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.item10 h3 {
+  font-size: 34px;
+  color: #4a004a;
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+/* === FORMULAIRES GÉNÉRAUX === */
+form {
+  width: 100%;
+  max-width: 500px;
+  margin: 50px auto;
+  background: #fff0f5;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  font-family: 'Georgia', serif;
+}
+
+form h3 {
+  text-align: center;
+  color: #4a004a;
+  margin-bottom: 25px;
+  font-weight: 700;
+  font-size: 28px;
+  letter-spacing: 1.1px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #4a004a;
+}
+
+form input[type="text"],
+form input[type="date"],
+form input[type="time"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+form input[type="text"]:focus,
+form input[type="date"]:focus,
+form input[type="time"]:focus {
+  outline: none;
+  border-color: #a64ca6;
+  box-shadow: 0 0 8px rgba(166,76,166,0.4);
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-buttons input {
+  width: 48%;
+  padding: 12px 0;
+  border-radius: 8px;
+  border: none;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #fccdd8;
+  color: white;
+  box-shadow: 0 6px 12px rgba(252, 205, 216, 0.6);
+  transition: background-color 0.3s;
+}
+
+.form-buttons input:hover {
+  background-color: #f79ec3;
+}
+
+/* === BOUTON RETOUR HAUT === */
+.back-to-top {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.back-to-top a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-color: #fcc7e3;
+  color: #4a004a;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 40px;
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.back-to-top a:hover {
+  background-color: #f79ec3;
+  color: white;
+  cursor: pointer;
+}
+
+/* === HERO SECTION === */
+.hero {
+  background: linear-gradient(rgba(250, 215, 235, 0.8), rgba(250, 215, 235, 0.8)), url('images/accueil_background.jpg') center/cover;
+  text-align: center;
+  padding: 100px 20px;
+  color: #4a004a;
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 20px;
+  color: #6a006a;
+}
+
+/* === PIED DE PAGE (footer) === */
+.footer {
+  grid-area: footer;
+}
+
+.inter {
+  height: 80px;
+}
